@@ -5,6 +5,7 @@ import About from "./components/about/About";
 import SwipperHome from "./components/swipperHome/SwipperHome";
 import Year from "./components/year/Year";
 import Sertificate from "./components/sertificate/Sertificate";
+import Partners from "./components/partners/Partners";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/sertificate",
     element: <Sertificate />,
+  },
+  {
+    path: "/partners",
+    element: <Partners />,
   },
 ]);
 function App() {
