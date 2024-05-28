@@ -120,18 +120,6 @@ function About() {
       quill.setText("");
     }
   }
-
-  async function send() {
-    // Upload file and metadata to the object 'images/mountains.jpg'
-    console.log(file);
-    const storageRef = ref(storage, `images/${file?.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    await uploadTask;
-    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-    setImageURL(downloadURL);
-    console.log(downloadURL);
-  }
   return (
     <div>
       <div className="flex w-[80%] m-auto justify-between">
@@ -155,13 +143,6 @@ function About() {
       </div>
       {imageURL && <img src={imageURL} />}
       <div dangerouslySetInnerHTML={{ __html: parse(inputValue).toString() }} />
-      <button onClick={send}>add image</button>
-      <input
-        type="file"
-        onChange={(e) => setFile(e.target.files[0])}
-        name=""
-        id=""
-      />
     </div>
   );
 }

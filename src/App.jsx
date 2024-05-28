@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Swagger from "./pages/Swagger";
 import Password from "./pages/Password";
 import About from "./components/about/About";
+import SwipperHome from "./components/swipperHome/SwipperHome";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,7 +14,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/about/me",
-    element: <About/>
+    element: <About />,
+  },
+  {
+    path: "/swapper/home",
+    element: <SwipperHome />,
   },
 ]);
 function App() {
