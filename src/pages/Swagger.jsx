@@ -8,6 +8,12 @@ function Swagger() {
     <main>
       <div className="flex grid-cols-4">
         <Button onClick={() => nav("/about/me")}>о нас</Button>
+        <Button onClick={() => nav("/swapper/home")}>
+          добавить фотографие в слайдер
+        </Button>
+        <Button onClick={() => nav("/we/numbers/")}>МЫ В ЦИФРАХ</Button>
+        <Button onClick={() => nav("/we/numbers/")}>о нас</Button>
+        <Button onClick={() => nav("/about/me")}>о нас</Button>
       </div>
     </main>
   );

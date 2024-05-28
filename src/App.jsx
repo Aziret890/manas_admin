@@ -3,6 +3,8 @@ import Swagger from "./pages/Swagger";
 import Password from "./pages/Password";
 import About from "./components/about/About";
 import SwipperHome from "./components/swipperHome/SwipperHome";
+import Year from "./components/year/Year";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,12 +22,14 @@ const router = createBrowserRouter([
     path: "/swapper/home",
     element: <SwipperHome />,
   },
+  {
+    path: "/we/numbers/",
+    element: <Year/>
+  },
 ]);
 function App() {
   return (
     <>
-      {/* <News />
-      <About /> */}
       <RouterProvider router={router} />
     </>
   );
