@@ -28,7 +28,6 @@ function SwipperHome() {
   const storage = getStorage();
   async function send() {
     if (file) {
-      // Upload file and metadata to the object 'images/mountains.jpg'
       console.log(file);
       const storageRef = ref(storage, `images/${file?.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
@@ -38,6 +37,7 @@ function SwipperHome() {
       setImageURL(downloadURL);
       console.log(downloadURL);
     } else {
+      modal.error(config);
     }
   }
   return (
@@ -57,7 +57,6 @@ function SwipperHome() {
             <Space>
               <Button
                 onClick={async () => {
-                  modal.error(config);
                   send();
                 }}
               >
