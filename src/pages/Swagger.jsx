@@ -12,8 +12,8 @@ function Swagger() {
           добавить фотографие в слайдер
         </Button>
         <Button onClick={() => nav("/we/numbers/")}>МЫ В ЦИФРАХ</Button>
-        <Button onClick={() => nav("/we/numbers/")}>о нас</Button>
-        <Button onClick={() => nav("/about/me")}>о нас</Button>
+        <Button onClick={() => nav("/sertificate")}>сертификаты</Button>
+        <Button onClick={() => nav("/news")}>новости</Button>
       </div>
     </main>
   );
