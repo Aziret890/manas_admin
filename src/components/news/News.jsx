@@ -11,7 +11,11 @@ import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../../fireBase/fireBase";
 import { set } from "firebase/database";
 import { setDoc } from "firebase/firestore";
-import { Button, Input } from "antd";
+import { Button, Flex, Input } from "antd";
+import ReactQuill from "react-quill";
+import parse from "node-html-parser";
+import { useQuill } from "react-quilljs";
+
 // Initialize Firebase app with your project configuration
 function News() {
   // async function getNews() {
@@ -35,7 +39,10 @@ function News() {
   // }
   const [images, setImages] = useState([]);
   const [file, setFile] = useState(null);
+  const [value, setValue] = useState(null);
   const [imageURL, setImageURL] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
   const storage = getStorage();
 
   function pageTokenExample() {
@@ -76,7 +83,8 @@ function News() {
       setImageURL(downloadURL);
       console.log(downloadURL);
       setDoc(doc(db, "users", `${Date.now()}`), {
-        title: "mairambek",
+        title: value,
+        description: inputValue,
         image: downloadURL,
       });
     } else {
@@ -84,13 +92,65 @@ function News() {
     }
   }
   function handleClick() {
-    send();
+    if (value && file && inputValue) {
+      send();
+    }
   }
+  const { quill, quillRef } = useQuill();
+
+  useEffect(() => {
+    if (quill) {
+      quill.on("text-change", () => {
+        setInputValue(quill.root.innerHTML);
+      });
+    }
+  }, [quill]);
   return (
     <div key="news">
-      News
-      <Input onChange={(e) => setFile(e.target.files[0])} type="file" />
-      <Button onClick={handleClick}>загрузить</Button>
+      <div className="max-w-[80%] m-auto">
+        <h1 className="mb-[100px]" style={{ fontSize: "25px" }}>
+          Опция добавления данных <big>НОВОСТИ</big>
+        </h1>
+
+        <Input
+          className="mb-[40px]"
+          onChange={(e) => setFile(e.target.files[0])}
+          type="file"
+          placeholder="тема новости (шапка)"
+        />
+        <Input
+          className="mb-[40px]"
+          type="text"
+          name=""
+          id=""
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <div className="flex w-[80%] m-auto justify-between">
+          <Flex gap={"large"} vertical className="w-full">
+            <Flex vertical gap={"middle"} className="w-">
+              <div ref={quillRef} style={{ width: "80%" }} />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: parse(inputValue).toString(),
+                }}
+              />
+              <Button
+                style={{ marginTop: "30px", width: "100px", display: "flex" }}
+                onClick={handleClick}
+                color="blue"
+                size="large"
+                type="primary"
+              >
+                загрузить
+              </Button>
+            </Flex>
+          </Flex>
+        </div>
+        {imageURL && <img src={imageURL} />}
+      </div>
       <ul>
         {images.map((image, index) => {
           const img = image.split("/")[1];

@@ -53,7 +53,6 @@ function Proud() {
       modal.error(config);
     }
   }
-  useEffect(() => {}, []);
   return (
     <div>
       <h1 className="text-center mt-[3pc] text-4xl">
