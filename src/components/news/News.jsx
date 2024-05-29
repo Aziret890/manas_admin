@@ -94,6 +94,8 @@ function News() {
   function handleClick() {
     if (value && file && inputValue) {
       send();
+    }else{
+      alert('fnqwpofnqwpofnqwpofnqwpofnqwponqwpfonfqw')
     }
   }
   const { quill, quillRef } = useQuill();
