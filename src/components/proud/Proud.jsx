@@ -1,18 +1,14 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getStorage,
   ref,
-  deleteObject,
-  listAll,
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 import { db } from "../../fireBase/fireBase";
-import { set } from "firebase/database";
 import { setDoc } from "firebase/firestore";
 import { Button, Flex, Input } from "antd";
-import ReactQuill from "react-quill";
 import parse from "node-html-parser";
 import { useQuill } from "react-quilljs";
 
