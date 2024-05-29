@@ -37,6 +37,19 @@ function News() {
   // // function create(values: Record<TypeParametres, string | number>) {
   // //   await setDoc(doc(db, "news", Date.now().toString()), values);
   // }
+  // useEffect(() => {
+  //   const desertRef = ref(storage, `proud/`);
+
+  //   // Delete the file
+  //   deleteObject(desertRef)
+  //     .then(() => {
+  //       // File deleted successfully
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       // Uh-oh, an error occurred!
+  //     });
+  // }, []);
   const [images, setImages] = useState([]);
   const [file, setFile] = useState(null);
   const [value, setValue] = useState(null);
@@ -94,8 +107,8 @@ function News() {
   function handleClick() {
     if (value && file && inputValue) {
       send();
-    }else{
-      alert('fnqwpofnqwpofnqwpofnqwpofnqwponqwpfonfqw')
+    } else {
+      alert("fnqwpofnqwpofnqwpofnqwpofnqwponqwpfonfqw");
     }
   }
   const { quill, quillRef } = useQuill();
