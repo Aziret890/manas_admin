@@ -9,6 +9,7 @@ import Partners from "./components/partners/Partners";
 import Proud from "./components/proud/Proud";
 import News from "./components/news/News";
 import PartnersInformation from "./components/parentInformation/ParentInformation";
+import ChildrenInformation from "./components/childrenInforamtion/ChildrenInformation";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "/parent/information",
     element: <PartnersInformation />,
+  },
+  {
+    path: "/children/information",
+    element: <ChildrenInformation />,
   },
 ]);
 function App() {
