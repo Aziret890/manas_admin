@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { getStorage, ref, deleteObject, listAll } from "firebase/storage";
+import React, { useEffect, useId, useState } from "react";
+import {
+  getStorage,
+  ref,
+  deleteObject,
+  listAll,
+  getDownloadURL,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../../fireBase/fireBase";
 import { set } from "firebase/database";
 import { setDoc } from "firebase/firestore";
+import { Button, Input } from "antd";
 // Initialize Firebase app with your project configuration
 function News() {
   // async function getNews() {
@@ -26,16 +34,13 @@ function News() {
   // //   await setDoc(doc(db, "news", Date.now().toString()), values);
   // }
   const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    console.log(1);
-    pageTokenExample();
-  }, []);
+  const [file, setFile] = useState(null);
+  const [imageURL, setImageURL] = useState("");
+  const storage = getStorage();
 
   function pageTokenExample() {
     const storage = getStorage();
     const listRef = ref(storage, "images");
-
     listAll(listRef)
       .then((res) => {
         const imageRefs = res.items.map((itemRef) => itemRef.fullPath);
@@ -60,12 +65,35 @@ function News() {
         // Uh-oh, an error occurred!
       });
   }
+  async function send() {
+    if (file) {
+      console.log(file);
+      const storageRef = ref(storage, `news/${file?.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      await uploadTask;
+      const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+      setImageURL(downloadURL);
+      console.log(downloadURL);
+      setDoc(doc(db, "users", `${Date.now()}`), {
+        title: "mairambek",
+        image: downloadURL,
+      });
+    } else {
+      console.log("error");
+    }
+  }
+  function handleClick() {
+    send();
+  }
   return (
     <div key="news">
       News
+      <Input onChange={(e) => setFile(e.target.files[0])} type="file" />
+      <Button onClick={handleClick}>загрузить</Button>
       <ul>
         {images.map((image, index) => {
-          const img = image.split('/')[1]
+          const img = image.split("/")[1];
           console.log(img);
           return (
             <li key={index}>
