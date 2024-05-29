@@ -8,6 +8,7 @@ import Sertificate from "./components/sertificate/Sertificate";
 import Partners from "./components/partners/Partners";
 import Proud from "./components/proud/Proud";
 import News from "./components/news/News";
+import PartnersInformation from "./components/parentInformation/ParentInformation";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/news",
     element: <News />,
+  },
+  {
+    path: "/parent/information",
+    element: <PartnersInformation />,
   },
 ]);
 function App() {

@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 function Swagger() {
   const nav = useNavigate();
   return (
-    <main>
-      <div className="flex grid-cols-4">
+    <main style={{width: "50%",
+    margin:'0 auto',
+    marginTop:'10%'
+    }}>
+      <div style={{display:'grid', gridTemplateColumns:'1fr 4', gap:'20px'}}>
         <Button onClick={() => nav("/about/me")}>о нас</Button>
         <Button onClick={() => nav("/swapper/home")}>
           добавить фотографие в слайдер
@@ -14,6 +17,9 @@ function Swagger() {
         <Button onClick={() => nav("/we/numbers/")}>МЫ В ЦИФРАХ</Button>
         <Button onClick={() => nav("/sertificate")}>сертификаты</Button>
         <Button onClick={() => nav("/news")}>новости</Button>
+        <Button onClick={() => nav("/parent/information")}>
+          информация родителям
+        </Button>
       </div>
     </main>
   );
