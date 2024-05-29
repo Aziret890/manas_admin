@@ -1,8 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { getStorage, ref, deleteObject,listAll } from "firebase/storage";
-
+import { getStorage, ref, deleteObject, listAll } from "firebase/storage";
+import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../fireBase/fireBase";
+import { set } from "firebase/database";
+import { setDoc } from "firebase/firestore";
 // Initialize Firebase app with your project configuration
 function News() {
+  // async function getNews() {
+  //   console.log(1);
+  //   try {
+  //     console.log(2);
+  //     const ref = collection(db, "users");
+  //     const snapShot = await getDocs(ref);
+  //     const dataUsers = snapShot.docs.map((doc) => doc.data());
+  //     console.log(dataUsers);
+  //     setImages(dataUsers);
+  //   } catch (error) {
+  //     console.log("e", error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   getNews();
+  // }, []);
+  // // function create(values: Record<TypeParametres, string | number>) {
+  // //   await setDoc(doc(db, "news", Date.now().toString()), values);
+  // }
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -25,25 +47,26 @@ function News() {
       });
     console.log(2);
 
+    // Create a reference to the file to delete
+    const desertRef = ref(storage, `images/${images[2]}`);
 
-// Create a reference to the file to delete
-const desertRef = ref(storage, `images/${images[2]}`);
-
-// Delete the file
-deleteObject(desertRef).then(() => {
-  // File deleted successfully
-}).catch((error) => {
-    console.log(error);
-  // Uh-oh, an error occurred!
-});
+    // Delete the file
+    deleteObject(desertRef)
+      .then(() => {
+        // File deleted successfully
+      })
+      .catch((error) => {
+        console.log(error);
+        // Uh-oh, an error occurred!
+      });
   }
-
   return (
     <div key="news">
       News
       <ul>
         {images.map((image, index) => {
-          const img = image.split('/')[1];
+          const img = image.split('/')[1]
+          console.log(img);
           return (
             <li key={index}>
               {JSON.stringify(img)}

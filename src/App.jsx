@@ -6,6 +6,8 @@ import SwipperHome from "./components/swipperHome/SwipperHome";
 import Year from "./components/year/Year";
 import Sertificate from "./components/sertificate/Sertificate";
 import Partners from "./components/partners/Partners";
+import Proud from "./components/proud/Proud";
+import News from "./components/news/News";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
   {
     path: "/partners",
     element: <Partners />,
+  },
+  {
+    path: "/proud",
+    element: <Proud />,
+  },
+  {
+    path: "/news",
+    element: <News />,
   },
 ]);
 function App() {
