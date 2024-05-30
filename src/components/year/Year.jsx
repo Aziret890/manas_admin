@@ -1,5 +1,7 @@
 import { Button, Input } from "antd";
+import { doc, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { db } from "../../fireBase/fireBase";
 
 function Year() {
   const [inputValue, setInputValue] = useState({
@@ -17,10 +19,13 @@ function Year() {
 
   const handleUpdate = (field) => {
     setInputValue({ ...inputValue, [field]: editValues[field] });
+
+    setDoc(doc(db, "we numbers", `${Date.now()}`), inputValue);
   };
   useEffect(() => {
-    console.log( editValues);
+    console.log(editValues);
   }, [inputValue]);
+
   return (
     <div className="m-auto">
       <div className="m-auto w-[500px]">
