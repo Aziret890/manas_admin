@@ -8,6 +8,8 @@ import {
 import { useState } from "react";
 import React, { createContext } from "react";
 import { Space } from "antd";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../fireBase/fireBase";
 const ReachableContext = createContext(null);
 const UnreachableContext = createContext(null);
 const config = {
@@ -35,6 +37,9 @@ function Partners() {
       await uploadTask;
       const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
       setImageURL(downloadURL);
+      setDoc(doc(db, "partners", `${Date.now()}`), {
+        image: downloadURL,
+      });
       console.log(downloadURL);
     } else {
       modal.error(config);

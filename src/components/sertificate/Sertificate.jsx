@@ -8,6 +8,8 @@ import {
 import { useState } from "react";
 import React, { createContext } from "react";
 import { Space } from "antd";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../fireBase/fireBase";
 const ReachableContext = createContext(null);
 const UnreachableContext = createContext(null);
 const config = {
@@ -35,12 +37,15 @@ function Sertificate() {
       await uploadTask;
       const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
       setImageURL(downloadURL);
-      console.log(downloadURL, '11');
+      console.log(downloadURL, "11");
+      setDoc(doc(db, "sertificate", `${Date.now()}`), {
+        image: downloadURL,
+      });
     } else {
       modal.error(config);
     }
   }
-  console.log(imageURL,'hmwepofwenopfwenpfowefnpowe');
+  console.log(imageURL, "hmwepofwenopfwenpfowefnpowe");
   return (
     <div>
       <h1 className="text-center mt-[3pc] text-4xl">
