@@ -10,6 +10,8 @@ import Proud from "./components/proud/Proud";
 import News from "./components/news/News";
 import PartnersInformation from "./components/parentInformation/ParentInformation";
 import ChildrenInformation from "./components/childrenInforamtion/ChildrenInformation";
+import ParentSchool from "./pages/ParentSchool";
+import TimeLessons from "./components/timeLessons/TimeLessons";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
   {
     path: "/children/information",
     element: <ChildrenInformation />,
+  },
+  {
+    path: "/parent/school",
+    element: <ParentSchool />,
+  },
+  {
+    path: "/time/lessons",
+    element: <TimeLessons />,
   },
 ]);
 function App() {

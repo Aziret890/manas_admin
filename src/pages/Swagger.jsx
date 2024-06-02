@@ -19,7 +19,12 @@ function Swagger() {
         <Button onClick={() => nav("/parent/information")}>
           информация родителям
         </Button>
-        <Button onClick={() => nav("/Children/information")}>информация ученикам</Button>
+        <Button onClick={() => nav("/Children/information")}>
+          информация ученикам
+        </Button>
+        <Button onClick={() => nav("/Children/information")}>
+          школа родителям
+        </Button>
       </div>
     </main>
   );
