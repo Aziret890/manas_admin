@@ -8,12 +8,12 @@ import ReactQuill from "react-quill";
 import parse from "node-html-parser";
 import { useQuill } from "react-quilljs";
 
-function Forma() {
+function TimeLessons() {
   const [inputValue, setInputValue] = useState("");
 
   function handleClick() {
     if (inputValue) {
-      setDoc(doc(db, "forma", `${Date.now()}`), {
+      setDoc(doc(db, "time lessons", `${Date.now()}`), {
         description: inputValue,
       });
     } else {
@@ -33,7 +33,7 @@ function Forma() {
     <div key="news">
       <div className="max-w-[80%] m-auto">
         <h1 className="mb-[100px]" style={{ fontSize: "25px" }}>
-          Опция добавления данных <big>МЕКТЕПТИН ФОРМАСЫ</big>
+          Опция добавления данных <big>РАСПИСАНИЕ ЗВОНКОВ</big>
         </h1>
       </div>
       <div>
@@ -63,4 +63,4 @@ function Forma() {
   );
 }
 
-export default Forma;
+export default TimeLessons;

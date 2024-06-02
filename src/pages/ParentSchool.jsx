@@ -23,34 +23,6 @@ function ParentSchool() {
   const [imageURL, setImageURL] = useState("");
   const [inputValue, setInputValue] = useState("");
   const storage = getStorage();
-
-  // function pageTokenExample() {
-  //   const storage = getStorage();
-  //   const listRef = ref(storage, "images");
-  //   listAll(listRef)
-  //     .then((res) => {
-  //       const imageRefs = res.items.map((itemRef) => itemRef.fullPath);
-  //       setImages(imageRefs);
-  //       console.log(imageRefs); // Optionally, log the image references
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //   console.log(2);
-
-  //   // Create a reference to the file to delete
-  //   const desertRef = ref(storage, `parentInformation/${images[2]}`);
-
-  //   // Delete the file
-  //   deleteObject(desertRef)
-  //     .then(() => {
-  //       // File deleted successfully
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       // Uh-oh, an error occurred!
-  //     });
-  // }
   async function send() {
     if (file) {
       console.log(file);

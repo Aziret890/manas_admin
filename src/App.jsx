@@ -12,6 +12,7 @@ import PartnersInformation from "./components/parentInformation/ParentInformatio
 import ChildrenInformation from "./components/childrenInforamtion/ChildrenInformation";
 import ParentSchool from "./pages/ParentSchool";
 import TimeLessons from "./components/timeLessons/TimeLessons";
+import Forma from "./components/timeLessons/TimeLessons";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: "/time/lessons",
     element: <TimeLessons />,
+  },
+  {
+    path: "/forma",
+    element: <Forma />,
   },
 ]);
 function App() {
