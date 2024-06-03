@@ -22,16 +22,14 @@ function Swagger() {
         <Button onClick={() => nav("/Children/information")}>
           информация ученикам
         </Button>
-<<<<<<< HEAD
         <Button onClick={() => nav("/Circles")}>
           добавить информация о Кружоках
         </Button>
         <Button onClick={() => nav("/lessons")}>
           Добавить Расписание уроков
-=======
+        </Button>
         <Button onClick={() => nav("/Children/information")}>
           школа родителям
->>>>>>> e2b0f18a0bf69ce65f6e4ac23b92a01fcf815ba6
         </Button>
       </div>
     </main>
