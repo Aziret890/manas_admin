@@ -10,10 +10,16 @@ import Proud from "./components/proud/Proud";
 import News from "./components/news/News";
 import PartnersInformation from "./components/parentInformation/ParentInformation";
 import ChildrenInformation from "./components/childrenInforamtion/ChildrenInformation";
+<<<<<<< HEAD
 import Circles from "./components/Circles/Circles";
 import Dance from "./components/Dance/Dance";
 import Lessons from "./components/lessons/Lessons";
 import Lessonsinfo from "./components/lessonsinfo";
+=======
+import ParentSchool from "./pages/ParentSchool";
+import TimeLessons from "./components/timeLessons/TimeLessons";
+import Forma from "./components/timeLessons/TimeLessons";
+>>>>>>> e2b0f18a0bf69ce65f6e4ac23b92a01fcf815ba6
 
 const router = createBrowserRouter([
   {
@@ -61,6 +67,7 @@ const router = createBrowserRouter([
     element: <ChildrenInformation />,
   },
   {
+<<<<<<< HEAD
     path: "/Circles",
     element: <Circles />,
   },
@@ -75,6 +82,18 @@ const router = createBrowserRouter([
   {
     path: "/lessonsinfo",
     element: <Lessonsinfo />,
+=======
+    path: "/parent/school",
+    element: <ParentSchool />,
+  },
+  {
+    path: "/time/lessons",
+    element: <TimeLessons />,
+  },
+  {
+    path: "/forma",
+    element: <Forma />,
+>>>>>>> e2b0f18a0bf69ce65f6e4ac23b92a01fcf815ba6
   },
 ]);
 function App() {
