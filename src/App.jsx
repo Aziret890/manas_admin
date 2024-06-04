@@ -18,6 +18,7 @@ import ParentSchool from "./pages/ParentSchool";
 import TimeLessons from "./components/timeLessons/TimeLessons";
 import Forma from "./components/timeLessons/TimeLessons";
 import Teacher from "./components/teacher/Teacher";
+import Photo from "./components/photo/Photo";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
   {
     path: "/teacher",
     element: <Teacher />,
+  },
+  {
+    path: "/photo",
+    element: <Photo />,
   },
 ]);
 function App() {
