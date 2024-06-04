@@ -2,8 +2,6 @@ import React, { useEffect, useId, useState } from "react";
 import {
   getStorage,
   ref,
-  deleteObject,
-  listAll,
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
