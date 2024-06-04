@@ -10,6 +10,10 @@ import Proud from "./components/proud/Proud";
 import News from "./components/news/News";
 import PartnersInformation from "./components/parentInformation/ParentInformation";
 import ChildrenInformation from "./components/childrenInforamtion/ChildrenInformation";
+import Circles from "./components/Circles/Circles";
+import Dance from "./components/Dance/Dance";
+import Lessons from "./components/lessons/Lessons";
+import Lessonsinfo from "./components/lessonsinfo";
 import ParentSchool from "./pages/ParentSchool";
 import TimeLessons from "./components/timeLessons/TimeLessons";
 import Forma from "./components/timeLessons/TimeLessons";
@@ -61,6 +65,20 @@ const router = createBrowserRouter([
     element: <ChildrenInformation />,
   },
   {
+    path: "/Circles",
+    element: <Circles />,
+  },
+  {
+    path: "/Danceinfo",
+    element: <Dance />,
+  },
+  {
+    path: "/lessons",
+    element: <Lessons />,
+  },
+  {
+    path: "/lessonsinfo",
+    element: <Lessonsinfo />,
     path: "/parent/school",
     element: <ParentSchool />,
   },

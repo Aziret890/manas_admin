@@ -1,0 +1,11 @@
+.lessons {
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &-btn {
+      width: 300px;
+    }
+  }
+}
