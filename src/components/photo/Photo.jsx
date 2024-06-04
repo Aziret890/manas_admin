@@ -75,7 +75,6 @@ function Photo() {
       });
     }
   }, [quill]);
-
   return (
     <div key="news">
       <div className="max-w-[80%] m-auto">
