@@ -66,7 +66,7 @@ function Teacher() {
     <div key="news">
       <div className="max-w-[80%] m-auto">
         <h1 className="mb-[100px]" style={{ fontSize: "25px" }}>
-          Опция добавления данных <big>НОВОСТИ</big>
+          Опция добавления данных <big>УЧИТЕЛЯ</big>
         </h1>
 
         <Input
