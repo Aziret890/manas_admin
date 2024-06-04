@@ -13,6 +13,7 @@ import ChildrenInformation from "./components/childrenInforamtion/ChildrenInform
 import ParentSchool from "./pages/ParentSchool";
 import TimeLessons from "./components/timeLessons/TimeLessons";
 import Forma from "./components/timeLessons/TimeLessons";
+import Teacher from "./components/teacher/Teacher";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: "/forma",
     element: <Forma />,
+  },
+  {
+    path: "/teacher",
+    element: <Teacher />,
   },
 ]);
 function App() {
