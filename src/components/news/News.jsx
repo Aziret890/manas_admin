@@ -148,11 +148,11 @@ function News() {
           <Flex gap={"large"} vertical className="w-full">
             <Flex vertical gap={"middle"} className="w-">
               <div ref={quillRef} style={{ width: "80%" }} />
-              <div
+              {/* <div
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(inputValue),
                 }}
-              />
+              /> */}
               <Button
                 style={{ marginTop: "30px", width: "100px", display: "flex" }}
                 onClick={handleClick}
