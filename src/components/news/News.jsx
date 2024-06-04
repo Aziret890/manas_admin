@@ -15,6 +15,7 @@ import { Button, Flex, Input } from "antd";
 import ReactQuill from "react-quill";
 import parse from "node-html-parser";
 import { useQuill } from "react-quilljs";
+import DOMPurify from "dompurify";
 
 // Initialize Firebase app with your project configuration
 function News() {
@@ -147,11 +148,11 @@ function News() {
           <Flex gap={"large"} vertical className="w-full">
             <Flex vertical gap={"middle"} className="w-">
               <div ref={quillRef} style={{ width: "80%" }} />
-              {/* <div
+              <div
                 dangerouslySetInnerHTML={{
-                  __html: parse(inputValue).toString(),
+                  __html: DOMPurify.sanitize(inputValue),
                 }}
-              /> */}
+              />
               <Button
                 style={{ marginTop: "30px", width: "100px", display: "flex" }}
                 onClick={handleClick}
