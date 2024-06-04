@@ -43,9 +43,9 @@ function ParentsInformation() {
           </h1>
           <Flex vertical gap={"middle"} className="w-">
             <div ref={quillRef} style={{ width: "80%" }} />
-            <div
+            {/* <div
               dangerouslySetInnerHTML={{ __html: parse(inputValue).toString() }}
-            />
+            /> */}
             <Button
               style={{ marginTop: "30px", width: "100px", display: "flex" }}
               onClick={addAbout}
