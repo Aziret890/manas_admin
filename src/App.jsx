@@ -80,6 +80,8 @@ const router = createBrowserRouter([
   {
     path: "/lessonsinfo",
     element: <Lessonsinfo />,
+  },
+  {
     path: "/parent/school",
     element: <ParentSchool />,
   },
